@@ -17,6 +17,7 @@ export const Users = () => {
       {users.map((userObj) => {
         return (
           <div key={userObj.id}>
+            <img src={userObj.profilePicUrl} alt=""></img>
             <p>{userObj.name}</p>
             <p>{userObj.userName}</p>
             <p>{userObj.email}</p>
