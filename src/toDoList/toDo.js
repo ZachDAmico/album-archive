@@ -3,41 +3,9 @@
 
 //WALK THROUGH DEBUGGER
 
-// WHY AM I NOT SEEING FETCHES IN NETWORK TAB WHEN SUBMITTING NEW ALBUM?
-//having favorite on adding form leaves blank space in collection view
-//WANT TO SHOW FORM THAT ALLOWS USER TO INPUT DETAILS FOR NEW ALBUM
-//WANT TO SHOW SEPARATE FORM THAT ALLOWS USER TO EDIT EXISTING ALBUM IN COLLECTION
-
-//do same for edit, but button is save, not submit
-//export and define edit component
-//useParams to get recordId from URL
-//initialize state
-//fetch album data
-//set state variable to populate form fields
-//create fields JSX
-//create handle submit component - needs to be PUT
-//use fetch to send PUT update to database
-//style
-//test
-//WANT TO CREATE SUB LIST OF USER'S FAVORITE ALBUMS
-//create Favorites.js
-//create Favorites.css
-//add imports
-//export and define component that checks to see if each album in collection
-//has been marked as a favorite
 //how can favorite available for new albums added and edited albums?
 //how do i unmark a favorited album?
 
-// WANT TO DISPLAY USER DETAILS AND FAVORITED ALBUMS
-
-//favorites component will need to be passed with Props?
-//add JSX to display use details and favorites
-//
-// WANT TO SET UP AUTHENTICATION AND LOGOUT
-//watch video for authentication and implement
-//
-//
-//
 //----------DONE-------------
 // SETUP
 
@@ -159,3 +127,38 @@
 //create Profile.css
 //add imports
 //User component will need to be passed with props?
+//do same for edit, but button is save, not submit
+//export and define edit component
+//useParams to get recordId from URL
+//initialize state
+//fetch album data
+//set state variable to populate form fields
+//create fields JSX
+//create handle submit component - needs to be PUT
+//use fetch to send PUT update to database
+//style
+//test
+//WANT TO CREATE SUB LIST OF USER'S FAVORITE ALBUMS
+//create Favorites.js
+//create Favorites.css
+//add imports
+//export and define component that checks to see if each album in collection
+//has been marked as a favorite
+
+// NEED TO ADD ALL PROPERTIES TO USERS IN REGISTER
+
+// WHY AM I NOT SEEING FETCHES IN NETWORK TAB WHEN SUBMITTING NEW ALBUM?
+//having favorite on adding form leaves blank space in collection view
+//WANT TO SHOW FORM THAT ALLOWS USER TO INPUT DETAILS FOR NEW ALBUM
+//WANT TO SHOW SEPARATE FORM THAT ALLOWS USER TO EDIT EXISTING ALBUM IN COLLECTION
+
+// WANT TO DISPLAY USER DETAILS AND FAVORITED ALBUMS
+
+//favorites component will need to be passed with Props?
+//add JSX to display use details and favorites
+//
+// WANT TO SET UP AUTHENTICATION AND LOGOUT
+//watch video for authentication and implement
+//
+//
+//

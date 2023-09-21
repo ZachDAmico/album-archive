@@ -45,10 +45,11 @@ export const EditAlbumForm = () => {
       <h2 className="album-form-title">Edit Album Info</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="artistName">Artist Name: </label>
+          <label htmlFor="editArtistName">Artist Name: </label>
           <input
-            value={record.artistName}
+            value={record.artistName ? record.artistName : ""}
             name="artistName"
+            id="editArtistName"
             type="text"
             className="form-control"
             placeholder="artist name"
@@ -62,10 +63,11 @@ export const EditAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="albumName">Album Name: </label>
+          <label htmlFor="editAlbumName">Album Name: </label>
           <input
-            value={record.albumName}
+            value={record.albumName ? record.albumName : ""}
             name="albumName"
+            id="editAlbumName"
             type="text"
             className="form-control"
             placeholder="album name"
@@ -79,10 +81,11 @@ export const EditAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="imgUrl">Image URL: </label>
+          <label htmlFor="editAlbumArtUrl">Image URL: </label>
           <input
-            value={record.albumArtUrl}
+            value={record.albumArtUrl ? record.albumArtUrl : ""}
             name="albumArtUrl"
+            id="editAlbumArtUrl"
             type="text"
             className="form-control"
             placeholder="https://www.albumart.com"
@@ -96,10 +99,11 @@ export const EditAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="year">Release Year: </label>
+          <label htmlFor="editYear">Release Year: </label>
           <input
-            value={record.year}
+            value={record.year ? record.year : ""}
             name="year"
+            id="editYear"
             type="text"
             className="form-control"
             placeholder="release year"
@@ -115,8 +119,9 @@ export const EditAlbumForm = () => {
         <div className="form-group">
           <label htmlFor="genre">Genre: </label>
           <select
-            value={record.genreId}
+            value={record.genreId ? record.genreId : ""}
             name="genreId"
+            id="genre"
             type="text"
             className="form-control"
             placeholder="Please select a genre"
@@ -139,21 +144,24 @@ export const EditAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="favorite">Favorite:</label>
+          <label htmlFor="editFavorite">Favorite:</label>
           <input
             type="checkbox"
-            checked={record.favorite}
+            checked={record.favorite || false}
+            value={record.favorite ? record.favorite : false}
             name="favorite"
+            id="editFavorite"
             onChange={(event) => {
-              const recordCopy = { ...record };
-              recordCopy.favorite = event.target.checked;
-              setRecord(recordCopy);
+              setRecord({
+                ...record,
+                favorite: event.target.checked,
+              });
             }}
           />
         </div>
       </fieldset>
       <button className="button" onClick={handleSave}>
-        Add Record
+        Update Record
       </button>
     </form>
   );

@@ -3,11 +3,15 @@ import { Users } from "../users/Users";
 import "./Profile.css";
 
 //want to import user objects and favorite object data here and do JSX
-export const MakeProfile = () => {
+export const MakeProfile = ({ currentUser }) => {
   return (
-    <div>
-      <Users />
-      <FavoritesList />
+    <div className="profile-container">
+      <div className="user-details">
+        <Users currentUser={currentUser} />
+      </div>
+      <div className="favorites">
+        <FavoritesList currentUser={currentUser} />
+      </div>
     </div>
   );
 };

@@ -1,7 +1,13 @@
-export const getRecords = () => {
+export const getRecordsById = (userId) => {
   return fetch(
-    `http://localhost:8088/records?_expand=genre&_expand=recordUser`
+    ` http://localhost:8088/records?recordUserId=${userId}&_expand=genre`
   ).then((response) => response.json());
+};
+
+export const getAllRecords = () => {
+  return fetch(`http://localhost:8088/records`).then((response) =>
+    response.json()
+  );
 };
 
 export const postRecord = (record) => {

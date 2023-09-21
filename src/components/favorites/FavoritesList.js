@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { getFavoriteAlbums } from "../../services/favoritesFetchService";
+import { getFavoritesById } from "../../services/favoritesFetchService";
 
-export const FavoritesList = () => {
+export const FavoritesList = ({ currentUser }) => {
   const [favoriteAlbums, setFavoriteAlbums] = useState([]);
 
   useEffect(() => {
-    getFavoriteAlbums().then((favoritesArray) => {
+    getFavoritesById(currentUser.id).then((favoritesArray) => {
       setFavoriteAlbums(favoritesArray);
     });
-  }, []);
+  }, [currentUser.id]);
 
   return (
-    <div>
-      <h2>Favorites</h2>
+    <div className="favorites-list-container">
+      <h2 className="favorites-titles">Favorites</h2>
       <ul>
         {favoriteAlbums.map((album) => {
-          return <li key={album.id}>{album.albumName}</li>;
+          return <li key={album.id}>{album.albumArtUrl}</li>;
         })}
       </ul>
     </div>

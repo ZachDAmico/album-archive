@@ -1,22 +1,37 @@
 import { useEffect, useState } from "react";
-import { deleteRecord, getRecords } from "../../services/recordsFetchService";
+import {
+  deleteRecord,
+  editRecord,
+  getAllRecords,
+  getRecordsById,
+} from "../../services/recordsFetchService";
 import { Link, useNavigate } from "react-router-dom";
 import "./Records.css";
 
-export const RecordsList = () => {
+export const RecordsList = ({ currentUser }) => {
   const navigate = useNavigate();
   const [records, setRecords] = useState([]);
+  const [userRecords, setUserRecords] = useState([]);
+
   useEffect(() => {
-    getRecords().then((recordsArray) => {
-      setRecords(recordsArray);
+    currentUser.id &&
+      getRecordsById(currentUser.id).then((recordsArray) => {
+        setUserRecords(recordsArray);
+      });
+  }, [currentUser, records]);
+
+  useEffect(() => {
+    getAllRecords().then((allRecordsArray) => {
+      setRecords(allRecordsArray);
     });
   }, []);
 
   const handleDelete = (id) => {
     deleteRecord(id).then(() => {
-      getRecords().then((recordsArray) => {
+      getRecordsById(currentUser.id).then((recordsArray) => {
         setRecords(recordsArray);
       });
+      window.alert("Album deleted");
     });
   };
 
@@ -25,7 +40,8 @@ export const RecordsList = () => {
       <Link to="/add-new-album">
         <button className="add-album-button">Add New Album</button>
       </Link>
-      {records.map((record) => {
+
+      {userRecords?.map((record) => {
         return (
           <div key={record.id} className="record">
             <img src={record.albumArtUrl} alt={record.albumName} />
@@ -49,10 +65,25 @@ export const RecordsList = () => {
             >
               Delete
             </button>
-            <label className="favorite-check-box">
-              Favorite:
-              <input type="checkbox" />
-            </label>
+            <div>
+              <label htmlFor="favoritedAlbum">
+                Favorite:
+                <input
+                  type="checkbox"
+                  id="favoritedAlbum"
+                  checked={record.favorite}
+                  name="favorite"
+                  onChange={() => {
+                    const recordCopy = { ...record };
+                    recordCopy.favorite = !record.favorite;
+                    editRecord(record.id, recordCopy);
+                    getAllRecords().then((allRecordsArray) => {
+                      setRecords(allRecordsArray);
+                    });
+                  }}
+                />
+              </label>
+            </div>
           </div>
         );
       })}

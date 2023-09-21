@@ -1,29 +1,26 @@
-import { Outlet, Route, Routes } from "react-router-dom";
-import { RecordsList } from "./components/records/RecordsList";
-// import { Users } from "./components/users/Users";
-import { NavBar } from "./components/nav/NavBar";
-import { AddAlbumForm } from "./components/forms/AddAlbumForm";
+import { Route, Routes } from "react-router-dom";
+
 import "./App.css";
-import { EditAlbumForm } from "./components/forms/EditAlbumForm";
-import { MakeProfile } from "./components/profile/MakeProfile";
+
+import { Login } from "./components/auth/Login";
+import { Register } from "./components/auth/Register";
+import { Authorized } from "./views/Authorized";
+import { ApplicationViews } from "./views/ApplicationViews";
 
 export const App = () => {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+
       <Route
-        path="/"
+        path="*"
         element={
-          <>
-            <NavBar />
-            <Outlet />
-          </>
+          <Authorized>
+            <ApplicationViews />
+          </Authorized>
         }
-      >
-        <Route index element={<RecordsList />} />
-        <Route path="add-new-album" element={<AddAlbumForm />} />
-        <Route path="edit-album/:recordId" element={<EditAlbumForm />} />
-        <Route path="profile" element={<MakeProfile />} />
-      </Route>
+      />
     </Routes>
   );
 };

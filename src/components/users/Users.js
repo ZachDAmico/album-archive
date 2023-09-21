@@ -4,26 +4,28 @@ import "./Users.css";
 
 //need props
 //how do i get the recordUser info here? - useState? map? do i need more than 1 user?
-export const Users = () => {
-  const [users, setUsers] = useState([]);
+export const Users = ({ currentUser }) => {
+  // const [loggedInUser, setLoggedInUser] = useState({});
 
-  useEffect(() => {
-    getRecordUsers().then((userArray) => {
-      setUsers(userArray);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getRecordUsers().then((userArray) => {
+  //     setLoggedInUser(userArray);
+  //   });
+  // }, []);
   return (
-    <div className="users">
-      {users.map((userObj) => {
-        return (
-          <div key={userObj.id}>
-            <img src={userObj.profilePicUrl} alt=""></img>
-            <p>{userObj.name}</p>
-            <p>{userObj.userName}</p>
-            <p>{userObj.email}</p>
-          </div>
-        );
-      })}
+    <div className="users-container">
+      return (
+      <div key={currentUser.id} className="user">
+        <img
+          src={currentUser.profilePicUrl}
+          alt=""
+          className="user-photo"
+        ></img>
+        <p>{currentUser.name}</p>
+        <p>{currentUser.userName}</p>
+        <p>{currentUser.email}</p>
+      </div>
+      );
     </div>
   );
 };

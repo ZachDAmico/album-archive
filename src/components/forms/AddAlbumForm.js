@@ -56,10 +56,11 @@ export const AddAlbumForm = () => {
       <h2 className="album-form-title">Add New Album to Your Crate</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="artistName">Artist Name: </label>
+          <label htmlFor="newArtistName">Artist Name: </label>
           <input
             value={newRecord.artistName}
             name="artistName"
+            id="newArtistName"
             type="text"
             className="form-control"
             placeholder="artist name"
@@ -69,10 +70,11 @@ export const AddAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="albumName">Album Name: </label>
+          <label htmlFor="newAlbumName">Album Name: </label>
           <input
             value={newRecord.albumName}
             name="albumName"
+            id="newAlbumName"
             type="text"
             className="form-control"
             placeholder="album name"
@@ -82,10 +84,11 @@ export const AddAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="imgUrl">Image URL: </label>
+          <label htmlFor="newAlbumArtUrl">Image URL: </label>
           <input
             value={newRecord.albumArtUrl}
             name="albumArtUrl"
+            id="newAlbumArtUrl"
             type="text"
             className="form-control"
             placeholder="https://www.albumart.com"
@@ -95,10 +98,11 @@ export const AddAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="year">Release Year: </label>
+          <label htmlFor="newYear">Release Year: </label>
           <input
             value={newRecord.year}
             name="year"
+            id="newYear"
             type="text"
             className="form-control"
             placeholder="release year"
@@ -108,10 +112,11 @@ export const AddAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="genre">Genre: </label>
+          <label htmlFor="newGenreId">Genre: </label>
           <select
             value={newRecord.genreId}
             name="genreId"
+            id="newGenreId"
             type="text"
             className="form-control"
             placeholder="Please select a genre"
@@ -130,11 +135,12 @@ export const AddAlbumForm = () => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="favorite">Favorite:</label>
+          <label htmlFor="newFavorite">Favorite:</label>
           <input
             type="checkbox"
             checked={favorite}
             name="favorite"
+            id="newFavorite"
             onChange={handleFavoriteChange}
           />
         </div>
