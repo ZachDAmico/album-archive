@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import { getUserByEmail } from "../../services/userService";
+import { getUserByEmail } from "../../services/userFetchService";
 
 export const Login = () => {
-  const [email, set] = useState("hpassfield7@netvibes.com");
+  const [email, set] = useState("");
   const navigate = useNavigate();
 
   //do i need this at all?
@@ -14,13 +14,15 @@ export const Login = () => {
 
     getUserByEmail(email).then((foundUsers) => {
       if (foundUsers.length === 1) {
-        const user = foundUsers[0];
+        const recordUser = foundUsers[0];
         localStorage.setItem(
           "album_user",
-          // "honey_user",
           JSON.stringify({
-            id: user.id,
-            isStaff: user.isStaff,
+            id: recordUser.id,
+            email: recordUser.email,
+            name: recordUser.name,
+            userName: recordUser.userName,
+            profilePicUrl: recordUser.profilePicUrl,
           })
         );
 
