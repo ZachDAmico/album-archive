@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getRecordUsers } from "../../services/userFetchService";
+// import { useEffect, useState } from "react";
+// import { getRecordUsers } from "../../services/userFetchService";
 import "./Users.css";
 
 //need props
@@ -14,7 +14,6 @@ export const Users = ({ currentUser }) => {
   // }, []);
   return (
     <div className="users-container">
-      return (
       <div key={currentUser.id} className="user">
         <img
           src={currentUser.profilePicUrl}
@@ -25,7 +24,6 @@ export const Users = ({ currentUser }) => {
         <p>{currentUser.userName}</p>
         <p>{currentUser.email}</p>
       </div>
-      );
     </div>
   );
 };

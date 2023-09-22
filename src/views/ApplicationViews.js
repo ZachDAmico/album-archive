@@ -29,7 +29,10 @@ export const ApplicationViews = () => {
       >
         {/* records list needs access to user */}
         <Route index element={<RecordsList currentUser={currentUser} />} />
-        <Route path="add-new-album" element={<AddAlbumForm />} />
+        <Route
+          path="add-new-album"
+          element={<AddAlbumForm currentUser={currentUser} />}
+        />
         <Route path="edit-album/:recordId" element={<EditAlbumForm />} />
         <Route
           path="profile"

@@ -13,11 +13,18 @@ export const FavoritesList = ({ currentUser }) => {
   return (
     <div className="favorites-list-container">
       <h2 className="favorites-titles">Favorites</h2>
-      <ul>
+      <div className="album-grid">
         {favoriteAlbums.map((album) => {
-          return <li key={album.id}>{album.albumArtUrl}</li>;
+          return (
+            <li key={album.id}>
+              <img
+                src={album.albumArtUrl}
+                alt={`Album Art for ${album.albumName}`}
+              />
+            </li>
+          );
         })}
-      </ul>
+      </div>
     </div>
   );
 };

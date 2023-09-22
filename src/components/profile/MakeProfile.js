@@ -10,6 +10,7 @@ export const MakeProfile = ({ currentUser }) => {
         <Users currentUser={currentUser} />
       </div>
       <div className="favorites">
+        <h2 className="favorite-title">Favorites</h2>
         <FavoritesList currentUser={currentUser} />
       </div>
     </div>
