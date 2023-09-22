@@ -2,14 +2,66 @@
   text-align: center;
 }
 
-.container-login > section > a {
+/* .video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-height: 100vh;
+  height: 1000px;
+} */
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover; /* Ensure the video covers the entire container */
+}
+
+#video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+/* .container-login > section > a {
   text-decoration: underline;
   color: var(--secondary);
+} */
+
+.container-login {
+  position: relative;
+  text-align: center;
+  z-index: 1; /* Place it in front of the video (higher z-index) */
+  padding: 2rem; /* Add some padding to center the form vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* .form-login {
+  width: 60%;
+  margin: 2rem auto;
+} */
 
 .form-login {
   width: 60%;
+  max-width: 400px; /* Adjust the maximum width as needed */
   margin: 2rem auto;
+  padding: 2rem; /* Add padding to create a rectangle shape */
+  border-radius: 10px; /* Add rounded corners */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Add a semi-transparent white background */
 }
 
 .form-login > h1 {
@@ -26,8 +78,21 @@
   width: 25em;
 }
 
-.login-btn {
+/* .login-btn {
   align-self: flex-end;
+} */
+.form-login .login-btn {
+  align-self: flex-end;
+  background-color: aqua;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #00cccc; /* Darker aqua on hover */
 }
 
 .login-btn:focus {
@@ -44,7 +109,7 @@ form {
   border-radius: 10px;
   padding: 1rem 0rem 0rem 1rem;
   box-shadow: 1px 2px 5px lightgray;
-  background-color: var(--offWhite);
+  background-color: black;
 }
 
 fieldset {

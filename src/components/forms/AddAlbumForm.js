@@ -3,7 +3,7 @@ import { getGenres } from "../../services/genreFetchService";
 import { useNavigate } from "react-router-dom";
 import { postRecord } from "../../services/recordsFetchService";
 
-export const AddAlbumForm = () => {
+export const AddAlbumForm = ({ currentUser }) => {
   const [newRecord, setNewRecord] = useState({
     artistName: "",
     albumName: "",
@@ -44,7 +44,7 @@ export const AddAlbumForm = () => {
       year: newRecord.year,
       favorite: favorite,
       genreId: newRecord.genreId,
-      recordUserId: newRecord.recordUserId,
+      recordUserId: currentUser.id,
     };
 
     postRecord(newRecordItem).then(() => {

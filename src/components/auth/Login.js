@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { getUserByEmail } from "../../services/userFetchService";
-
+import recordVideo from "../../assets/pexel-record-video.mp4";
 export const Login = () => {
   const [email, set] = useState("");
   const navigate = useNavigate();
@@ -35,6 +35,11 @@ export const Login = () => {
 
   return (
     <main className="container-login">
+      <div className="video-container">
+        <video autoPlay muted loop id="video-background">
+          <source src={recordVideo} type="video/mp4" />
+        </video>
+      </div>
       <section>
         <form className="form-login" onSubmit={handleLogin}>
           <h1>Album Archive</h1>

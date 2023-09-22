@@ -6,7 +6,7 @@ import { createUser, getUserByEmail } from "../../services/userFetchService";
 export const Register = (props) => {
   const [customer, setCustomer] = useState({
     email: "",
-    fullName: "",
+    name: "",
     userName: "",
     profilePicUrl: "",
   });
@@ -19,9 +19,10 @@ export const Register = (props) => {
           "album_user",
           JSON.stringify({
             id: createdUser.id,
+            name: createdUser.name,
             email: createdUser.email,
             userName: createdUser.userName,
-            profilePicUrl: createUser.profilePicUrl,
+            profilePicUrl: createdUser.profilePicUrl,
           })
         );
 
@@ -59,7 +60,7 @@ export const Register = (props) => {
             <input
               onChange={updateCustomer}
               type="text"
-              id="fullName"
+              id="name"
               className="form-control"
               placeholder="Enter your name"
               required

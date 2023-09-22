@@ -9,15 +9,18 @@ export const NavBar = () => {
       <li className="navbar-logo">
         <img src={imageUrl} alt="Logo" />
       </li>
-      <li className="navbar-item">Home</li>
-      <li className="navbar-item">
-        <Link to="/">My Crate</Link>
-      </li>
-      <li className="navbar-item">
-        <Link to="/profile">Profile</Link>
-      </li>
+      {/* <li className="navbar-item">Home</li> */}
+      <div className="navbar-links">
+        <li className="navbar-item">
+          <Link to="/">My Crate</Link>
+        </li>
+
+        <li className="navbar-item">
+          <Link to="/profile">Profile</Link>
+        </li>
+      </div>
       {localStorage.getItem("album_user") ? (
-        <li className="navbar-item navbar-logout">
+        <li className="navbar-logout">
           <Link
             className="navbar-link"
             to=""
