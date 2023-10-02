@@ -133,11 +133,30 @@ fieldset {
   flex-direction: column;
 }
 
-.form-btn {
+/* .form-btn {
   align-self: flex-end;
-}
+} */
 
 .form-btn:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.register-btn.btn-info {
+  background-color: aqua;
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-btn.btn-info:hover {
+  background-color: #00cccc; /* Darker aqua on hover */
+}
+
+.register-btn.btn-info:focus {
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;

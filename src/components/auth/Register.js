@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { createUser, getUserByEmail } from "../../services/userFetchService";
-
+import recordVideo from "../../assets/pexel-record-video.mp4";
 export const Register = (props) => {
   const [customer, setCustomer] = useState({
     email: "",
@@ -52,6 +52,11 @@ export const Register = (props) => {
 
   return (
     <main style={{ textAlign: "center" }}>
+      <div className="video-container">
+        <video autoPlay muted loop id="video-background">
+          <source src={recordVideo} type="video/mp4" />
+        </video>
+      </div>
       <form className="form-login" onSubmit={handleRegister}>
         <h1>Album Archive</h1>
         <h2>Please Register</h2>
@@ -106,7 +111,7 @@ export const Register = (props) => {
         </fieldset>
         <fieldset>
           <div className="form-group">
-            <button className="login-btn btn-info" type="submit">
+            <button className="register-btn btn-info" type="submit">
               Register
             </button>
           </div>

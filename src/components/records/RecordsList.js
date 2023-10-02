@@ -12,6 +12,7 @@ export const RecordsList = ({ currentUser }) => {
   const navigate = useNavigate();
   const [records, setRecords] = useState([]);
   const [userRecords, setUserRecords] = useState([]);
+  const [randomRecord, setRandomRecord] = useState(null);
 
   useEffect(() => {
     currentUser.id &&
@@ -35,11 +36,34 @@ export const RecordsList = ({ currentUser }) => {
     });
   };
 
+  const getRandomRecord = () => {
+    if (userRecords.length > 0) {
+      const randomRecordInteger = Math.floor(
+        Math.random() * userRecords.length
+      );
+      setRandomRecord(userRecords[randomRecordInteger]);
+    }
+  };
+
   return (
     <div className="records-container">
       <Link to="/add-new-album">
         <button className="add-album-button">Add New Album</button>
       </Link>
+
+      <button className="random-button" onClick={getRandomRecord}>
+        Random Record
+      </button>
+
+      {randomRecord && (
+        <div className="random-record">
+          <img src={randomRecord.albumArtUrl} alt={randomRecord.albumName} />
+          <p>{randomRecord.albumName}</p>
+          <p>{randomRecord.artistName}</p>
+          <p>{randomRecord.year}</p>
+          <p>{randomRecord.genre.genreName}</p>
+        </div>
+      )}
 
       {userRecords?.map((record) => {
         return (
