@@ -3,6 +3,13 @@
 
 //WALK THROUGH DEBUGGER
 
+//make random button
+//use math.random to generate random number
+// math.floor to round down to whole integer?
+// multiply times number of records - records.length?
+//match random generated number to record id
+//display record matching that id on page
+
 //how can favorite available for new albums added and edited albums?
 //how do i unmark a favorited album?
 
