@@ -18,6 +18,5 @@ The user of this application is an individual who has a passion for record colle
 ![](https://github.com/ZachDAmico/album-archive/blob/main/crate%20page.png)
 ![](https://github.com/ZachDAmico/album-archive/blob/main/add%20album%20page.png)
 ![](https://github.com/ZachDAmico/album-archive/blob/main/edit%20page.png)
-![](https://github.com/hi-michelleprimiani/know-how-app/assets/133997733/1ed9fe44-15bd-4401-b4c5-7a2c0e6ae0d3)
 ![](https://github.com/ZachDAmico/album-archive/blob/main/profile%20page.png)
 
